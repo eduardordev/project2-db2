@@ -3,10 +3,7 @@ package com.uvg.cadenasuministrosdb2.app.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Relationship;
+import org.springframework.data.neo4j.core.schema.*;
 
 import java.time.ZonedDateTime;
 
@@ -20,9 +17,9 @@ public class PO {
     @GeneratedValue
 
     private Long id;
-    private Integer orderId;
     private ZonedDateTime date;
     private Boolean delivered;
+    @Property("payment_method")
     private String paymentMethod;
     private String products;
     private String status;

@@ -28,7 +28,7 @@ public class Inventory {
     @Property("update_date")
     private ZonedDateTime updateDate;
 
-    @Relationship(type = "Contains", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "Contains", direction = Relationship.Direction.INCOMING)
     private List<PO> purchaseOrders;
 
 }
