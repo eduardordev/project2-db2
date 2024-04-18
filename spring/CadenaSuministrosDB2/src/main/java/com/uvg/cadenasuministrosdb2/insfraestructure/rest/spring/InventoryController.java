@@ -3,6 +3,8 @@ package com.uvg.cadenasuministrosdb2.insfraestructure.rest.spring;
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
 import com.uvg.cadenasuministrosdb2.app.domain.services.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,8 +38,11 @@ public class InventoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Inventory>> getAllInventories() {
-        List<Inventory> inventories = inventoryService.getAllInventories();
+    public ResponseEntity<Page<Inventory>> getAllInventories(
+            @RequestParam int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<Inventory> inventories = inventoryService.getAllInventories(page, size);
         return ResponseEntity.ok(inventories);
     }
 

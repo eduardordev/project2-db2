@@ -40,7 +40,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://18.191.199.191:1913/api/inventories",
+							"raw": "http://18.191.199.191:1913/api/inventories?page=0",
 							"protocol": "http",
 							"host": [
 								"18",
@@ -52,6 +52,12 @@
 							"path": [
 								"api",
 								"inventories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
 							]
 						}
 					},

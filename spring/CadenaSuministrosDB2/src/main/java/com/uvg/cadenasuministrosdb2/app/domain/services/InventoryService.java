@@ -3,6 +3,8 @@ package com.uvg.cadenasuministrosdb2.app.domain.services;
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
@@ -27,8 +29,8 @@ public class InventoryService{
     }
 
     // READ
-    public List<Inventory> getAllInventories() {
-        return inventoryRepository.findAll();
+    public Page<Inventory> getAllInventories(int page, int size) {
+        return inventoryRepository.findAll(PageRequest.of(page, size));
     }
 
     public List<Inventory> findAllByStatus(String status) {
