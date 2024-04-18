@@ -1,7 +1,7 @@
-package com.uvg.cadenasuministrosdb2.app.services;
+package com.uvg.cadenasuministrosdb2.app.domain.services;
 
 import com.uvg.cadenasuministrosdb2.app.domain.Product;
-import com.uvg.cadenasuministrosdb2.app.repository.ProductRepository;
+import com.uvg.cadenasuministrosdb2.app.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

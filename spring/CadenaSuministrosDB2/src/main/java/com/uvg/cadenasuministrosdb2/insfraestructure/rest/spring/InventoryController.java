@@ -1,7 +1,7 @@
 package com.uvg.cadenasuministrosdb2.insfraestructure.rest.spring;
 
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
-import com.uvg.cadenasuministrosdb2.app.services.InventoryService;
+import com.uvg.cadenasuministrosdb2.app.domain.services.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
