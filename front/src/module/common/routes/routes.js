@@ -43,6 +43,25 @@ const routes = [
   
   {
     type: "collapse",
+    name: "Nodos",
+    key: "nodes",
+    icon: <Icon fontSize="medium">description</Icon>,
+    collapse: [
+      {
+        name: "Inventarios",
+        key: "nodes_inventories",
+        route: LINKS.inventories,
+      },
+      {
+        name: "Productos",
+        key: "nodes_products",
+        route: LINKS.products,
+      },
+    
+    ],
+  },
+  {
+    type: "collapse",
     name: "Facturas",
     key: "invoices",
     icon: <Icon fontSize="medium">description</Icon>,

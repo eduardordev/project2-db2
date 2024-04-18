@@ -11,4 +11,6 @@ export const LINKS = {
   aggregation03: "/aggregation03/view/",
   aggregation04: "/aggregation04/view/",
   product_test: "/product_test/view/",
+  inventories: "/inventories/view/",
+  products: "/products/view/",
 };
