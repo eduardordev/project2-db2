@@ -5,6 +5,7 @@ import org.springframework.data.neo4j.core.schema.*;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -28,7 +29,10 @@ public class Inventory {
     @Property("update_date")
     private ZonedDateTime updateDate;
 
+
     @Relationship(type = "Contains", direction = Relationship.Direction.INCOMING)
     private List<PO> purchaseOrders;
 
+    @Property
+    private Map<String, Object> properties;
 }

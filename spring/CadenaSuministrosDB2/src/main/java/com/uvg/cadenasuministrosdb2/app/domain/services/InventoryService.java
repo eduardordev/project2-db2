@@ -3,11 +3,14 @@ package com.uvg.cadenasuministrosdb2.app.domain.services;
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,14 +24,14 @@ public class InventoryService{
     }
 
     // CREATE
-    public Inventory createInventory(Integer productId, String location, Integer quantity, String status, ZonedDateTime updateDate) {
-        Inventory inventory = new Inventory(null, productId, location, quantity, status, updateDate, new ArrayList<>());
+    public Inventory createInventory(Integer productId, String location, Integer quantity, String status, ZonedDateTime updateDate, Map<String, Object> properties) {
+        Inventory inventory = new Inventory(null, productId, location, quantity, status, updateDate, new ArrayList<>(), properties);
         return inventoryRepository.save(inventory);
     }
 
     // READ
-    public List<Inventory> getAllInventories() {
-        return inventoryRepository.findAll();
+    public Page<Inventory> getAllInventories(int page, int size) {
+        return inventoryRepository.findAll(PageRequest.of(page, size));
     }
 
     public List<Inventory> findAllByStatus(String status) {
@@ -58,6 +61,52 @@ public class InventoryService{
     // DELETE
     public void deleteInventory(Long id) {
         inventoryRepository.deleteById(id);
+    }
+
+    public Long getTotalQuantityByStatus(String status) {
+        return inventoryRepository.getTotalQuantityByStatus(status);
+    }
+
+    // Operación que permita agregar 1 o más propiedades a un nodo
+    public Inventory addPropertiesToInventory(Long id, Map<String, Object> properties) {
+        Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
+        inventory.getProperties().putAll(properties);
+        return inventoryRepository.save(inventory);
+    }
+
+    // Operación que permita agregar 1 o más propiedades a múltiples nodos al mismo tiempo
+    public List<Inventory> addPropertiesToInventories(List<Long> ids, Map<String, Object> properties) {
+        List<Inventory> inventories = inventoryRepository.findAllById(ids);
+        inventories.forEach(inventory -> inventory.getProperties().putAll(properties));
+        return inventoryRepository.saveAll(inventories);
+    }
+
+    // Operación que permita realizar la actualización de 1 o más propiedades de un nodo
+    public Inventory updatePropertiesOfInventory(Long id, Map<String, Object> properties) {
+        Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
+        inventory.getProperties().putAll(properties);
+        return inventoryRepository.save(inventory);
+    }
+
+    // Operación que permita realizar la actualización de 1 o más propiedades de múltiples nodos al mismo tiempo
+    public List<Inventory> updatePropertiesOfInventories(List<Long> ids, Map<String, Object> properties) {
+        List<Inventory> inventories = inventoryRepository.findAllById(ids);
+        inventories.forEach(inventory -> inventory.getProperties().putAll(properties));
+        return inventoryRepository.saveAll(inventories);
+    }
+
+    // Operación que permita eliminar 1 o mas propiedades de un nodo
+    public Inventory removePropertiesOfInventory(Long id, List<String> propertyKeys) {
+        Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
+        propertyKeys.forEach(key -> inventory.getProperties().remove(key));
+        return inventoryRepository.save(inventory);
+    }
+
+    // Operación que permita eliminar 1 o más propiedades de múltiples nodos al mismo tiempo
+    public List<Inventory> removePropertiesOfInventories(List<Long> ids, List<String> propertyKeys) {
+        List<Inventory> inventories = inventoryRepository.findAllById(ids);
+        inventories.forEach(inventory -> propertyKeys.forEach(key -> inventory.getProperties().remove(key)));
+        return inventoryRepository.saveAll(inventories);
     }
 
 }
