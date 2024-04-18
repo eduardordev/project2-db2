@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "7cbc50c3-e94f-414e-9c8b-08244fd25556",
+		"name": "Cadena de Suministros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27004706"
+	},
+	"item": [
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "findAllByStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories/status/Out%20of%20stock",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories",
+								"status",
+								"Out%20of%20stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories/56270",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories",
+								"56270"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateInventory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productId",
+									"value": "96",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "San Cristobal, Mixco",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "OS",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateInventory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productId",
+									"value": "96",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "San Cristobal, Mixco",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "IP",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories/25052",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories",
+								"25052"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/inventories/25053",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"inventories",
+								"25053"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
