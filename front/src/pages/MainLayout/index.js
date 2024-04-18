@@ -142,7 +142,7 @@ const MainLayout = () => {
           //     ? consertec
           //     : consertec
           // }
-          brandName="Facturacion App"
+          brandName="Cadena de Suministros"
           routes={routes}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
