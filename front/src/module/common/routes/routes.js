@@ -87,39 +87,7 @@ const routes = [
       },
     ],
   },
-  {
-    type: "collapse",
-    name: "Facturas",
-    key: "invoices",
-    icon: <Icon fontSize="medium">description</Icon>,
-    collapse: [
-      {
-        name: "Facturas Vigentes",
-        key: "invoices_list",
-        route: LINKS.invoicesVIG,
-      },
-      {
-        name: "Facturas Anuladas",
-        key: "invoices_list",
-        route: LINKS.invoicesANU,
-      },
-    
-    ],
-  },
-  {
-    type: "collapse",
-    name: "Inteligencia de Negocios",
-    key: "charts",
-    icon: <Icon fontSize="medium">description</Icon>,
-    collapse: [
-      {
-        name: "Mongo Charts",
-        key: "mongo_charts",
-        route: LINKS.charts
-      },
-      
-    ],
-  },
+  
   {
     type: "collapse",
     name: "Agregaciones",
@@ -130,26 +98,6 @@ const routes = [
         name: "Agregacion 1",
         key: "aggregation01",
         route: LINKS.aggregation01,
-      },
-      {
-        name: "Agregacion 2",
-        key: "aggregation02",
-        route: LINKS.aggregation02,
-      },
-      {
-        name: "Agregacion 3",
-        key: "aggregation03",
-        route: LINKS.aggregation03,
-      },
-      {
-        name: "Agregacion 4",
-        key: "aggregation04",
-        route: LINKS.aggregation04,
-      },
-      {
-        name: "Product Test",
-        key: "product_test",
-        route: LINKS.product_test,
       },
     ],
   },
