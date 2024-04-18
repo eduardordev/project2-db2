@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DataTable from '../../components/DataTable';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 
 function Inventories() {
   const [inventories, setInventories] = useState([]);
@@ -47,8 +47,8 @@ function Inventories() {
         }}
       />
       <div>
-        <button onClick={handlePrevPage} disabled={page === 0}>Previous Page</button>
-        <button onClick={handleNextPage}>Next Page</button>
+        <Button onClick={handlePrevPage} variant="contained" color="primary" style={{ color: 'white' }} disabled={page === 0}>Previous Page</Button>
+        <Button onClick={handleNextPage} variant="contained" color="primary" style={{ color: 'white' }}>Next Page</Button>
       </div>
     </div>
   );
