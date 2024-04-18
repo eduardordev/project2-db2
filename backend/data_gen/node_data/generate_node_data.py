@@ -36,7 +36,7 @@ with open('inventory.csv', 'w', newline='') as csvfile:
             'quantity': fake.random_int(min=0, max=1000),
             'location': fake.address(),
             'update_date': fake.date_this_decade().isoformat(),
-            'status': fake.random_element(elements=("Active", "Out of stock", "In process"))
+            'status': fake.random_element(elements=("A", "OS", "IP"))    # IP: in process, OS: out of stock, A: active
         })
 
 # Generar datos para proveedores
