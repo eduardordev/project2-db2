@@ -57,7 +57,11 @@ const routes = [
         key: "nodes_products",
         route: LINKS.products,
       },
-    
+      {
+        name: "Órdenes de Compra",
+        key: "nodes_purchase_orders",
+        route: LINKS.purchase_orders,
+      },
     ],
   },
   {
