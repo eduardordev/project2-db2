@@ -46,6 +46,7 @@ import Aggregation04 from "../Aggregation04/Aggregation04";
 import ProductTest from "../ProductTest/ProductTest";
 import Inventories from "../Inventories/Inventories";
 import Products from "../Products/Products";
+import PurchaseOrders from "../PurchaseOrders/PurchaseOrders";
 
 const MainLayout = () => {
 
@@ -187,6 +188,7 @@ const MainLayout = () => {
             <Route path="/product_test/view/" element={<ProductTest action="view" />} />
             <Route path="/inventories/view/" element={<Inventories action="view" />} />
             <Route path="/products/view/" element={<Products action="view" />} />
+            <Route path="/purchase-orders/view/" element={<PurchaseOrders action="view" />} />
 
         </Routes>
       </MDBox>

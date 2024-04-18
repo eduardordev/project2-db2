@@ -13,4 +13,5 @@ export const LINKS = {
   product_test: "/product_test/view/",
   inventories: "/inventories/view/",
   products: "/products/view/",
+  purchase_orders: "/purchase-orders/view/",
 };
