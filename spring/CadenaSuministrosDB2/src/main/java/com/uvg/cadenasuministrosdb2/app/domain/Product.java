@@ -2,11 +2,9 @@ package com.uvg.cadenasuministrosdb2.app.domain;
 
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import org.springframework.data.neo4j.core.schema.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
