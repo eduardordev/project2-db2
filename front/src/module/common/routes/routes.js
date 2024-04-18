@@ -62,6 +62,18 @@ const routes = [
         key: "nodes_purchase_orders",
         route: LINKS.purchase_orders,
       },
+      {
+        name: "Rutas de Transporte",
+        key: "nodes_transport_routes",
+        route: LINKS.transport_routes,
+      },
+      {
+        name: "Proveedores",
+        key: "nodes_suppliers",
+        route: LINKS.suppliers,
+      },
+    ],
+  },
     ],
   },
   {

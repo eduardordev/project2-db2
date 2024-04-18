@@ -14,4 +14,6 @@ export const LINKS = {
   inventories: "/inventories/view/",
   products: "/products/view/",
   purchase_orders: "/purchase-orders/view/",
+  transport_routes: "/transport-routes/view/",
+  suppliers: "/suppliers/view/",
 };
