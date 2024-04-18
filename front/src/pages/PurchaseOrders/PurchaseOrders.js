@@ -13,7 +13,7 @@ function PurchaseOrders() {
   // http://18.191.199.191:1913/api/inventories/56270
   const fetchPurchaseOrders = async () => {
     try {
-        const response = await axios.get('http://18.191.199.191:1913/api/purchase-orders');
+        const response = await axios.get('http://3.145.98.75:1913/api/purchase-orders');
         setPurchaseOrders(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);

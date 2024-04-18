@@ -13,7 +13,7 @@ function TransportRoutes() {
   // http://18.191.199.191:1913/api/inventories/56270
   const fetchTransportRoutes = async () => {
     try {
-        const response = await axios.get('http://18.191.199.191:1913/api/transport-routes');
+        const response = await axios.get('http://3.145.98.75:1913/api/transport-routes');
         setTransportRoutes(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);
