@@ -22,6 +22,6 @@ public class Product {
     private String brand;
     private String description;
 
-    @Relationship(type = "TRANSPORT_ROUTES", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "TransportRoute", direction = Relationship.Direction.OUTGOING)
     private List<Product> transportRoutes;
 }
