@@ -84,19 +84,6 @@ const MainLayout = () => {
     window.location.replace("/");
   };
 
-
-  const getUserData = () => {
-    let data = getSessionData();
-    setUser(data.username);
-    
-    setRolLabel(getRolLabel(data.role))
-    console.log(data)
-  };
-
-  useEffect(() => {
-    getUserData();
-  });
-
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
