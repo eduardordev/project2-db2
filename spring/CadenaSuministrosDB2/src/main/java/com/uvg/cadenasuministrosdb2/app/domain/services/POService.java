@@ -3,7 +3,9 @@ package com.uvg.cadenasuministrosdb2.app.domain.services;
 import com.uvg.cadenasuministrosdb2.app.domain.PO;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.PORepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -44,7 +46,8 @@ public class POService {
             po.setTotal(updatedPO.getTotal());
             return poRepository.save(po);
         } else {
-            return null;
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Purchase Order not found with id: " + id);
         }
     }
 

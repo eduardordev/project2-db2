@@ -485,6 +485,288 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Suppliers",
+			"item": [
+				{
+					"name": "getAllSuppliers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/suppliers",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/suppliers/74518",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"suppliers",
+								"74518"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"YaEsta!\",\r\n    \"address\": \"Guatemala, Guatemala\",\r\n    \"phone\": \"55558888\",\r\n    \"country\": \"Guatemala\",\r\n    \"reputation\": 10,\r\n    \"contact\": \"Sylvia Andrino\",\r\n    \"email\": \"sylvia@gmail.com\",\r\n    \"website\": \"https://www.yaesta.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/suppliers",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"YaEsta!\",\r\n    \"address\": \"Guatemala, Guatemala\",\r\n    \"phone\": \"55558888\",\r\n    \"country\": \"Guatemala\",\r\n    \"reputation\": 10,\r\n    \"contact\": \"Sylvia Andrino\",\r\n    \"email\": \"sylvia@gmail.com\",\r\n    \"website\": \"https://www.yaesta.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/suppliers/23541",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"suppliers",
+								"23541"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/suppliers/23541",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"suppliers",
+								"23541"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransportRoute",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/transport-routes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"transport-routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/transport-routes/0",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"transport-routes",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\": \"Mixco\",\r\n    \"destination\": \"Jalpatagua\",\r\n    \"cost\": 850,\r\n    \"estimatedTime\": \"05:00:00\",\r\n    \"company\": \"Transportes Ana Lu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/transport-routes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"transport-routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"origin\": \"Mixco\",\r\n        \"destination\": \"Jalpatagua\",\r\n        \"cost\": 300,\r\n        \"estimatedTime\": \"05:00:00\",\r\n        \"company\": \"Transportes Ana Lu\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/transport-routes/23542",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"transport-routes",
+								"23542"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.191.199.191:1913/api/transport-routes/23542",
+							"protocol": "http",
+							"host": [
+								"18",
+								"191",
+								"199",
+								"191"
+							],
+							"port": "1913",
+							"path": [
+								"api",
+								"transport-routes",
+								"23542"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

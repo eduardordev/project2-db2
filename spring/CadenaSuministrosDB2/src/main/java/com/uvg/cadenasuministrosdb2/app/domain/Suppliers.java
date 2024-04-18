@@ -10,14 +10,12 @@ import org.springframework.data.neo4j.core.schema.Node;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Node("Suppliers")
+@Node("Supplier")
 public class Suppliers {
 
     @Id
     @GeneratedValue
     private Long id;
-
-    private Integer supplierId;
     private String name;
     private String address;
     private String phone;

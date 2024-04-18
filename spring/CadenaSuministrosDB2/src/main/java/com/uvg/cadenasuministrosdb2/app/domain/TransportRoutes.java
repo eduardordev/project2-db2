@@ -6,20 +6,21 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Node("Transport_Routes")
+@Node("TransportRoute")
 public class TransportRoutes {
 
     @Id
     @GeneratedValue
     private Long id;
-    private Integer transportRouteId;
     private String origin;
     private String destination;
     private Integer cost;
+    @Property("estimated_time")
     private String estimatedTime;
     private String company;
 }
