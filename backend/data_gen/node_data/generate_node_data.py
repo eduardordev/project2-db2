@@ -10,7 +10,7 @@ with open('products.csv', 'w', newline='') as csvfile:
                   'description', 'supplier', 'launch_date']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
-    for i in range(1, 25000):  # 50,000 productos
+    for i in range(1, 25000):  # 24999 productos
         writer.writerow({
             'id': i,
             'name': fake.word(),
