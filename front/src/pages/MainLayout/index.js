@@ -181,6 +181,7 @@ const MainLayout = () => {
             <Route path="/purchase-orders/view" element={<PurchaseOrders action="view" />} />
             <Route path="/transport-routes/view" element={<TransportRoutes action="view" />} />
             <Route path="/suppliers/view" element={<Suppliers action="view" />} />
+            <Route path="/suppliers/create" element={<AddSupplierForm action="create" />} />
 
         </Routes>
       </MDBox>

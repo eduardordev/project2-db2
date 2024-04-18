@@ -74,6 +74,17 @@ const routes = [
       },
     ],
   },
+  {
+    type: "collapse",
+    name: "Create",
+    key: "create",
+    icon: <Icon fontSize="medium">edit</Icon>,
+    collapse: [
+      {
+        name: "Proveedores",
+        key: "create_suppliers",
+        route: LINKS.suppliers_create,
+      },
     ],
   },
   {
