@@ -45,7 +45,7 @@ const routes = [
     type: "collapse",
     name: "Nodos",
     key: "nodes",
-    icon: <Icon fontSize="medium">description</Icon>,
+    icon: <Icon fontSize="medium">circle</Icon>,
     collapse: [
       {
         name: "Inventarios",
@@ -92,7 +92,7 @@ const routes = [
     type: "collapse",
     name: "Agregaciones",
     key: "aggregations",
-    icon: <Icon fontSize="medium">description</Icon>,
+    icon: <Icon fontSize="medium">add</Icon>,
     collapse: [
       {
         name: "Agregacion 1",
