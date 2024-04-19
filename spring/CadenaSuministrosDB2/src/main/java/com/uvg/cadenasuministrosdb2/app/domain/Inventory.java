@@ -4,9 +4,7 @@ import lombok.Data;
 import org.springframework.data.neo4j.core.schema.*;
 
 import java.time.ZonedDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -34,8 +32,21 @@ public class Inventory {
     @Relationship(type = "Contains", direction = Relationship.Direction.INCOMING)
     private List<PO> purchaseOrders;
 
-    @Property
-    private Map<String, Object> properties;
+    @Relationship(type = "HasProperty")
+    private List<InventoryProperty> properties;
+
+    @Data
+    @AllArgsConstructor
+
+    @Node("Property")
+    public static class InventoryProperty {
+        @Id
+        @GeneratedValue
+        private Long id;
+        private String key;
+        private String value;
+
+    }
 
 
 }
