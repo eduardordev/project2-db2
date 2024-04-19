@@ -81,6 +81,11 @@ const routes = [
     icon: <Icon fontSize="medium">create</Icon>,
     collapse: [
       {
+        name: "Productos",
+        key: "create_products",
+        route: LINKS.products_create,
+      },
+      {
         name: "Proveedores",
         key: "create_suppliers",
         route: LINKS.suppliers_create,
@@ -94,9 +99,32 @@ const routes = [
     icon: <Icon fontSize="medium">update</Icon>,
     collapse: [
       {
+        name: "Productos",
+        key: "update_products",
+        route: LINKS.products_update,
+      },
+      {
         name: "Proveedores",
         key: "update_suppliers",
         route: LINKS.suppliers_update,
+      },
+    ],
+  },
+  {
+    type: "collapse",
+    name: "Delete",
+    key: "delete",
+    icon: <Icon fontSize="medium">delete</Icon>,
+    collapse: [
+      {
+        name: "Productos",
+        key: "delete_products",
+        route: LINKS.products_delete,
+      },
+      {
+        name: "Proveedores",
+        key: "delete_suppliers",
+        route: LINKS.suppliers_delete,
       },
     ],
   },

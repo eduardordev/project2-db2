@@ -13,9 +13,13 @@ export const LINKS = {
   product_test: "/product_test/view/",
   inventories: "/inventories/view/",
   products: "/products/view/",
+  products_create: "/products/create/",
+  products_update: "/products/update/",
+  products_delete: "/products/delete/",
   purchase_orders: "/purchase-orders/view/",
   transport_routes: "/transport-routes/view/",
   suppliers: "/suppliers/view/",
   suppliers_create: "/suppliers/create/",
   suppliers_update: "/suppliers/update/",
+  suppliers_delete: "/suppliers/delete/",
 };

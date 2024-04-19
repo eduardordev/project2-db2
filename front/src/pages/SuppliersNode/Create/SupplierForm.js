@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Paper, Typography, Modal } from '@mui/material';
-import axios from 'axios';
 
 function AddSupplierForm({ onAddSupplier }) {
     const [supplierData, setSupplierData] = useState({
