@@ -50,6 +50,7 @@ import PurchaseOrders from "../PurchaseOrders/PurchaseOrders";
 import TransportRoutes from "../TransportRoutes/TransportRoutes";
 import Suppliers from "../SuppliersNode/Suppliers";
 import AddSupplierForm from "../SuppliersNode/Create/SupplierForm";
+import UpdateSupplier from "../SuppliersNode/Update/UpdateSupplier";
 
 const MainLayout = () => {
 
@@ -182,6 +183,7 @@ const MainLayout = () => {
             <Route path="/transport-routes/view" element={<TransportRoutes action="view" />} />
             <Route path="/suppliers/view" element={<Suppliers action="view" />} />
             <Route path="/suppliers/create" element={<AddSupplierForm action="create" />} />
+            <Route path="/suppliers/update" element={<UpdateSupplier action="update" />} />
 
         </Routes>
       </MDBox>

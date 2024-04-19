@@ -17,4 +17,5 @@ export const LINKS = {
   transport_routes: "/transport-routes/view/",
   suppliers: "/suppliers/view/",
   suppliers_create: "/suppliers/create/",
+  suppliers_update: "/suppliers/update/",
 };

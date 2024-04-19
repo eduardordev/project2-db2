@@ -78,7 +78,7 @@ const routes = [
     type: "collapse",
     name: "Create",
     key: "create",
-    icon: <Icon fontSize="medium">edit</Icon>,
+    icon: <Icon fontSize="medium">create</Icon>,
     collapse: [
       {
         name: "Proveedores",
@@ -87,7 +87,19 @@ const routes = [
       },
     ],
   },
-  
+  {
+    type: "collapse",
+    name: "Update",
+    key: "update",
+    icon: <Icon fontSize="medium">update</Icon>,
+    collapse: [
+      {
+        name: "Proveedores",
+        key: "update_suppliers",
+        route: LINKS.suppliers_update,
+      },
+    ],
+  },
   {
     type: "collapse",
     name: "Agregaciones",
