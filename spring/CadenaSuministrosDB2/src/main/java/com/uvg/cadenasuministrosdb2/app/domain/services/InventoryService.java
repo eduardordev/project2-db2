@@ -1,7 +1,5 @@
 package com.uvg.cadenasuministrosdb2.app.domain.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
