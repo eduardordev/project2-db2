@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
+import { TextField, Button, Grid, Paper, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 
 function UpdateSupplier() {
   const [supplierId, setSupplierId] = useState('');
@@ -15,6 +15,9 @@ function UpdateSupplier() {
     email: '',
     website: ''
   });
+  const [notFoundModalOpen, setNotFoundModalOpen] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
 
   const handleSupplierIdChange = (event) => {
     setSupplierId(event.target.value);
@@ -27,6 +30,7 @@ function UpdateSupplier() {
       setFormData(response.data);
     } catch (error) {
       console.error('Error fetching supplier:', error);
+      setNotFoundModalOpen(true); // Open modal if supplier not found
     }
   };
 
@@ -39,11 +43,17 @@ function UpdateSupplier() {
     try {
       const response = await axios.put(`http://3.145.98.75:1913/api/suppliers/${supplierId}`, formData);
       console.log('Supplier updated successfully:', response.data);
-      // Optionally, reset the form or show a success message
+      setSuccessModalOpen(true); // Open modal on success
     } catch (error) {
       console.error('Error updating supplier:', error);
-      // Optionally, show an error message
+      setErrorModalOpen(true); // Open modal on error
     }
+  };
+
+  const handleCloseModals = () => {
+    setNotFoundModalOpen(false);
+    setSuccessModalOpen(false);
+    setErrorModalOpen(false);
   };
 
   return (
@@ -60,7 +70,7 @@ function UpdateSupplier() {
             onChange={handleSupplierIdChange}
           />
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={2} sx={{ textAlign: 'left' }}>
           <Button variant="contained" color="primary" onClick={handleSearch} style={{ color: 'white' }}>Search</Button>
         </Grid>
         {supplier && (
@@ -112,6 +122,48 @@ function UpdateSupplier() {
           </Grid>
         )}
       </Grid>
+      {/* Supplier Not Found Modal */}
+      <Dialog open={notFoundModalOpen} onClose={handleCloseModals}>
+        <DialogTitle>Supplier Not Found</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            The supplier with the provided ID was not found in the database.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModals} color="primary" autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+      {/* Success Modal */}
+      <Dialog open={successModalOpen} onClose={handleCloseModals}>
+        <DialogTitle>Success</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Supplier updated successfully.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModals} color="primary" autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+      {/* Error Modal */}
+      <Dialog open={errorModalOpen} onClose={handleCloseModals}>
+        <DialogTitle>Error</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Error updating supplier. Please try again later.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModals} color="primary" autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Paper>
   );
 }

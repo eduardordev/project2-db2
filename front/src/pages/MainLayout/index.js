@@ -51,6 +51,10 @@ import TransportRoutes from "../TransportRoutes/TransportRoutes";
 import Suppliers from "../SuppliersNode/Suppliers";
 import AddSupplierForm from "../SuppliersNode/Create/SupplierForm";
 import UpdateSupplier from "../SuppliersNode/Update/UpdateSupplier";
+import AddProductForm from "../Products/Create/ProductForm";
+import UpdateProduct from "../Products/Update/UpdateProduct";
+import DeleteSupplier from "../SuppliersNode/Delete/DeleteSupplier";
+import DeleteProduct from "../Products/Delete/DeleteProduct";
 
 const MainLayout = () => {
 
@@ -179,11 +183,15 @@ const MainLayout = () => {
             <Route path="/product_test/view" element={<ProductTest action="view" />} />
             <Route path="/inventories/view" element={<Inventories action="view" />} />
             <Route path="/products/view" element={<Products action="view" />} />
+            <Route path="/products/create" element={<AddProductForm action="create" />} />
+            <Route path="/products/update" element={<UpdateProduct action="create" />} />
+            <Route path="/products/delete" element={<DeleteProduct action="create" />} />
             <Route path="/purchase-orders/view" element={<PurchaseOrders action="view" />} />
             <Route path="/transport-routes/view" element={<TransportRoutes action="view" />} />
             <Route path="/suppliers/view" element={<Suppliers action="view" />} />
             <Route path="/suppliers/create" element={<AddSupplierForm action="create" />} />
             <Route path="/suppliers/update" element={<UpdateSupplier action="update" />} />
+            <Route path="/suppliers/delete" element={<DeleteSupplier action="delete" />} />
 
         </Routes>
       </MDBox>
