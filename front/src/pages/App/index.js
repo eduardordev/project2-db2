@@ -20,8 +20,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          { session && <Route path='/*' element={<MainLayout />} /> }
-          { !session && <Route path='/*' element={<AuthenticationLayout session={session} setSession={setSession} />} /> }
+          <Route path='/*' element={<MainLayout />} />
         </Routes>
     </BrowserRouter>
     </div>

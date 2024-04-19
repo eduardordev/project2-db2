@@ -8,7 +8,7 @@ const AuthenticationLayout = ({ session, setSession }) => {
     return(
         <div className="authentication-layout">
             <Routes>
-                <Route path="/*" element={<Login setSession={setSession} />} />
+                <Route path="/*" />
                 <Route path="/register" element={ <SignUp /> } />
                 
             </Routes>
