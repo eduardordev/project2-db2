@@ -59,4 +59,8 @@ public class ProductsService {
                     HttpStatus.NOT_FOUND, "Product not found with id: " + id);
         }
     }
+
+    public void deleteAllProducts() {
+        productRepository.deleteAll();
+    }
 }

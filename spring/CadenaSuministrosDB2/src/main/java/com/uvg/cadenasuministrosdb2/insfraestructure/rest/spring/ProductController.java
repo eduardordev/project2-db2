@@ -40,7 +40,6 @@ public class ProductController {
                 product.getStock(), product.getBrand(), product.getDescription());
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         Product updatedProduct = productService.updateProduct(id, product);
@@ -55,5 +54,11 @@ public class ProductController {
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<String> deleteAllProducts() {
+        productService.deleteAllProducts();
+        return ResponseEntity.ok("All products have been deleted successfully.");
     }
 }

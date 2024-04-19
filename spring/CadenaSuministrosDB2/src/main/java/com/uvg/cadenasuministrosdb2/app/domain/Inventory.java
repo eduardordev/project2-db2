@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.neo4j.core.schema.*;
 
 import java.time.ZonedDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,4 +36,6 @@ public class Inventory {
 
     @Property
     private Map<String, Object> properties;
+
+
 }

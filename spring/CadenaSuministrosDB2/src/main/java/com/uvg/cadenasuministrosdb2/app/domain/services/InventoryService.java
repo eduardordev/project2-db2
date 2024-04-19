@@ -8,10 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class InventoryService{
@@ -63,6 +60,8 @@ public class InventoryService{
         inventoryRepository.deleteById(id);
     }
 
+
+
     public Long getTotalQuantityByStatus(String status) {
         return inventoryRepository.getTotalQuantityByStatus(status);
     }
@@ -70,28 +69,44 @@ public class InventoryService{
     // Operación que permita agregar 1 o más propiedades a un nodo
     public Inventory addPropertiesToInventory(Long id, Map<String, Object> properties) {
         Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
-        inventory.getProperties().putAll(properties);
+
+        if (inventory.getProperties() == null) {
+            inventory.setProperties(new HashMap<>());
+        }
+
+        properties.forEach((key, value) -> {
+            if (value instanceof String && ((String) value).equalsIgnoreCase("SI")) {
+                value = "SI";
+            }
+            inventory.getProperties().put(key, value);
+        });
+
         return inventoryRepository.save(inventory);
     }
 
-    // Operación que permita agregar 1 o más propiedades a múltiples nodos al mismo tiempo
+
+
+
+
     public List<Inventory> addPropertiesToInventories(List<Long> ids, Map<String, Object> properties) {
         List<Inventory> inventories = inventoryRepository.findAllById(ids);
-        inventories.forEach(inventory -> inventory.getProperties().putAll(properties));
+        inventories.forEach(inventory -> {
+            properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
+        });
         return inventoryRepository.saveAll(inventories);
     }
 
-    // Operación que permita realizar la actualización de 1 o más propiedades de un nodo
     public Inventory updatePropertiesOfInventory(Long id, Map<String, Object> properties) {
         Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
-        inventory.getProperties().putAll(properties);
+        properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
         return inventoryRepository.save(inventory);
     }
 
-    // Operación que permita realizar la actualización de 1 o más propiedades de múltiples nodos al mismo tiempo
     public List<Inventory> updatePropertiesOfInventories(List<Long> ids, Map<String, Object> properties) {
         List<Inventory> inventories = inventoryRepository.findAllById(ids);
-        inventories.forEach(inventory -> inventory.getProperties().putAll(properties));
+        inventories.forEach(inventory -> {
+            properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
+        });
         return inventoryRepository.saveAll(inventories);
     }
 
