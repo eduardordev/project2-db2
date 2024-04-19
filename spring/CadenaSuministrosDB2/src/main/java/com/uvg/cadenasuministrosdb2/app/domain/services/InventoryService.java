@@ -97,14 +97,19 @@ public class InventoryService{
     // Operación que permita eliminar 1 o mas propiedades de un nodo
     public Inventory removePropertiesOfInventory(Long id, List<String> propertyKeys) {
         Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
-        propertyKeys.forEach(key -> inventory.getProperties().remove(key));
+        List<Inventory.InventoryProperty> properties = inventory.getProperties();
+        properties.removeIf(property -> propertyKeys.contains(property.getKey()));
+        inventory.setProperties(properties);
         return inventoryRepository.save(inventory);
     }
 
-    // Operación que permita eliminar 1 o más propiedades de múltiples nodos al mismo tiempo
     public List<Inventory> removePropertiesOfInventories(List<Long> ids, List<String> propertyKeys) {
         List<Inventory> inventories = inventoryRepository.findAllById(ids);
-        inventories.forEach(inventory -> propertyKeys.forEach(key -> inventory.getProperties().remove(key)));
+        inventories.forEach(inventory -> {
+            List<Inventory.InventoryProperty> properties = inventory.getProperties();
+            properties.removeIf(property -> propertyKeys.contains(property.getKey()));
+            inventory.setProperties(properties);
+        });
         return inventoryRepository.saveAll(inventories);
     }
 
