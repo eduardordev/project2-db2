@@ -40,7 +40,6 @@ public class ProductController {
                 product.getStock(), product.getBrand(), product.getDescription());
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         Product updatedProduct = productService.updateProduct(id, product);
