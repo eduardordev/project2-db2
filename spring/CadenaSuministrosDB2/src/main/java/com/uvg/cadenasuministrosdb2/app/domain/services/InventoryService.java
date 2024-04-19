@@ -1,5 +1,7 @@
 package com.uvg.cadenasuministrosdb2.app.domain.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ public class InventoryService{
     }
 
     // CREATE
-    public Inventory createInventory(Integer productId, String location, Integer quantity, String status, ZonedDateTime updateDate, Map<String, Object> properties) {
+    public Inventory createInventory(Integer productId, String location, Integer quantity, String status, ZonedDateTime updateDate, List<Inventory.InventoryProperty> properties) {
         Inventory inventory = new Inventory(null, productId, location, quantity, status, updateDate, new ArrayList<>(), properties);
         return inventoryRepository.save(inventory);
     }
@@ -67,45 +69,29 @@ public class InventoryService{
     }
 
     // Operación que permita agregar 1 o más propiedades a un nodo
-    public Inventory addPropertiesToInventory(Long id, Map<String, Object> properties) {
-        Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
-
-        if (inventory.getProperties() == null) {
-            inventory.setProperties(new HashMap<>());
-        }
-
-        properties.forEach((key, value) -> {
-            if (value instanceof String && ((String) value).equalsIgnoreCase("SI")) {
-                value = "SI";
-            }
-            inventory.getProperties().put(key, value);
-        });
-
-        return inventoryRepository.save(inventory);
-    }
 
 
-
-
-
-    public List<Inventory> addPropertiesToInventories(List<Long> ids, Map<String, Object> properties) {
+    public List<Inventory> addPropertiesToInventories(List<Long> ids, List<Inventory.InventoryProperty> properties) {
         List<Inventory> inventories = inventoryRepository.findAllById(ids);
         inventories.forEach(inventory -> {
-            properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
+            inventory.getProperties().clear();
+            inventory.getProperties().addAll(properties);
         });
         return inventoryRepository.saveAll(inventories);
     }
 
-    public Inventory updatePropertiesOfInventory(Long id, Map<String, Object> properties) {
+    public Inventory updatePropertiesOfInventory(Long id, List<Inventory.InventoryProperty> properties) {
         Inventory inventory = getInventoryById(id).orElseThrow(() -> new RuntimeException("Inventory not found with id: " + id));
-        properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
+        inventory.getProperties().clear();
+        inventory.getProperties().addAll(properties);
         return inventoryRepository.save(inventory);
     }
 
-    public List<Inventory> updatePropertiesOfInventories(List<Long> ids, Map<String, Object> properties) {
+    public List<Inventory> updatePropertiesOfInventories(List<Long> ids, List<Inventory.InventoryProperty> properties) {
         List<Inventory> inventories = inventoryRepository.findAllById(ids);
         inventories.forEach(inventory -> {
-            properties.forEach((key, value) -> inventory.getProperties().put(key, value.toString()));
+            inventory.getProperties().clear();
+            inventory.getProperties().addAll(properties);
         });
         return inventoryRepository.saveAll(inventories);
     }

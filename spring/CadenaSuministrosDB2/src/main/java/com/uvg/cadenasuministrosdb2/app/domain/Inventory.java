@@ -34,8 +34,21 @@ public class Inventory {
     @Relationship(type = "Contains", direction = Relationship.Direction.INCOMING)
     private List<PO> purchaseOrders;
 
-    @Property
-    private Map<String, Object> properties;
+    @Relationship(type = "HasProperty")
+    private List<InventoryProperty> properties;
+
+    @Data
+    @AllArgsConstructor
+
+    @Node("Property")
+    public static class InventoryProperty {
+        @Id
+        @GeneratedValue
+        private Long id;
+        private String key;
+        private String value;
+
+    }
 
 
 }

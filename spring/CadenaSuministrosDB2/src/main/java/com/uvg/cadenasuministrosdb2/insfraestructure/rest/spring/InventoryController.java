@@ -87,25 +87,25 @@ public class InventoryController {
 
     // Operación que permita agregar 1 o más propiedades a un nodo
     @PutMapping("/{id}/properties")
-    public Inventory addPropertiesToInventory(@PathVariable Long id, @RequestBody Map<String, Object> properties) {
-        return inventoryService.addPropertiesToInventory(id, properties);
+    public List<Inventory> addPropertiesToInventory(@RequestParam List<Long> id, @RequestBody List<Inventory.InventoryProperty> properties) {
+        return inventoryService.addPropertiesToInventories(id, properties);
     }
 
     // Operación que permita agregar 1 o más propiedades a múltiples nodos al mismo tiempo
     @PutMapping("/properties")
-    public List<Inventory> addPropertiesToInventories(@RequestParam List<Long> ids, @RequestBody Map<String, Object> properties) {
+    public List<Inventory> addPropertiesToInventories(@RequestParam List<Long> ids, @RequestBody List<Inventory.InventoryProperty> properties) {
         return inventoryService.addPropertiesToInventories(ids, properties);
     }
 
     // Operación que permita realizar la actualización de 1 o más propiedades de un nodo
     @PatchMapping("/{id}/properties")
-    public Inventory updatePropertiesOfInventory(@PathVariable Long id, @RequestBody Map<String, Object> properties) {
+    public Inventory updatePropertiesOfInventory(@PathVariable Long id, @RequestBody List<Inventory.InventoryProperty> properties) {
         return inventoryService.updatePropertiesOfInventory(id, properties);
     }
 
     // Operación que permita realizar la actualización de 1 o más propiedades de múltiples nodos al mismo tiempo
     @PatchMapping("/properties")
-    public List<Inventory> updatePropertiesOfInventories(@RequestParam List<Long> ids, @RequestBody Map<String, Object> properties) {
+    public List<Inventory> updatePropertiesOfInventories(@RequestParam List<Long> ids, @RequestBody List<Inventory.InventoryProperty> properties) {
         return inventoryService.updatePropertiesOfInventories(ids, properties);
     }
 
