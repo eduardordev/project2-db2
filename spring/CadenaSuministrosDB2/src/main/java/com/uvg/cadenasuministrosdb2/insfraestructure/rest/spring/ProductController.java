@@ -56,4 +56,10 @@ public class ProductController {
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<String> deleteAllProducts() {
+        productService.deleteAllProducts();
+        return ResponseEntity.ok("All products have been deleted successfully.");
+    }
 }
