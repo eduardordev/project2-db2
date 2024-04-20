@@ -1,11 +1,8 @@
 package com.uvg.cadenasuministrosdb2.app.domain.services;
 
 import com.uvg.cadenasuministrosdb2.app.domain.Inventory;
-import com.uvg.cadenasuministrosdb2.app.domain.Product;
-import com.uvg.cadenasuministrosdb2.app.domain.Relationship;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.InventoryRepository;
 import com.uvg.cadenasuministrosdb2.app.domain.repository.ProductRepository;
-import com.uvg.cadenasuministrosdb2.app.domain.repository.RelationshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,14 +15,11 @@ import java.util.*;
 public class InventoryService{
 
     private final InventoryRepository inventoryRepository;
-    private final RelationshipRepository relationshipRepository;
-    private final ProductRepository productRepository;
+
 
     @Autowired
-    public InventoryService(InventoryRepository inventoryRepository, RelationshipRepository relationshipRepository, ProductRepository productRepository) {
+    public InventoryService(InventoryRepository inventoryRepository) {
         this.inventoryRepository = inventoryRepository;
-        this.relationshipRepository = relationshipRepository;
-        this.productRepository = productRepository;
     }
 
     // CREATE
@@ -120,14 +114,5 @@ public class InventoryService{
         return inventoryRepository.saveAll(inventories);
     }
 
-    public void createProductInventoryRelationship(Long productId, Long inventoryId, String relationshipType,  List<Inventory.InventoryProperty> properties) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + productId));
-        Inventory inventory = inventoryRepository.findById(inventoryId)
-                .orElseThrow(() -> new RuntimeException("Inventory not found with id: " + inventoryId));
-
-        Relationship relationship = new Relationship(null, product.getId(), inventory.getId(), relationshipType, properties);
-        relationshipRepository.save(relationship);
-    }
 
 }

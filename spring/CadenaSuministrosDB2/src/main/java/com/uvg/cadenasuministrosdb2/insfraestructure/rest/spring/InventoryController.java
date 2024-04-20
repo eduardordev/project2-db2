@@ -119,8 +119,4 @@ public class InventoryController {
         return inventoryService.removePropertiesOfInventories(ids, propertyKeys);
     }
 
-    @PostMapping("/product-inventory")
-    public void createProductInventoryRelationship(@RequestParam Long productId, @RequestParam Long inventoryId, @RequestParam String relationshipType, @RequestBody List<Inventory.InventoryProperty> properties) {
-        inventoryService.createProductInventoryRelationship(productId, inventoryId, relationshipType, properties);
-    }
 }
